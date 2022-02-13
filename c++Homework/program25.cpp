@@ -19,31 +19,26 @@ full credit. */
 using namespace std;
 
 
-//one
-
-
 int findSum(std::vector<int>);
 int findSum(std::vector<int>, int);
 
 //tail recursion 
 int findSumTR(std::vector<int>);
-int findSumTR(std::vector<int>, int);
+int findSumTR(std::vector<int>, int, int);
 
 int main(){
-
-  std::vector<int> vec = {2, 3, 4, 5, 6, 7};
+//test input with negative numbers, a zero, small numbers and big numbers
+  std::vector<int> vec = {11233, -2333333, 24, -1, 0, 35, 134, 3121, 1, 3212};
   int n = 0;
+  int index = 0;
+  int output = 0;
   findSum(vec, n);
-  cout <<  findSum(vec, n) << std::endl;
-  cout << findSumTR(vec) << std::endl;
-  
-  
+  cout << "The sum of the vector is: " << findSum(vec, n) << std::endl;
+  cout << "The tail recursive version vector sum is: " << findSumTR(vec, index, output) << std::endl;
   
   return 0;
 
 }
-
-
 
 int findSum(std::vector<int> vec){
     return findSum(vec, 1);
@@ -55,24 +50,18 @@ int findSum(std::vector<int> vec, int n){
         }else{
             return(findSum(vec, n + 1) + vec[n]);
         }
+    }
+    
+int findSumTR(std::vector<int> vec){
+    return findSumTR(vec, 0, 0);
+}
+int findSumTR(std::vector<int> vec, int index, int output){
+    if(index == vec.size()){
+        return output;
+    }else{
+        return findSumTR(vec, index+1, output+vec[index]);
         
     }
-    
-    
-    
-    
-//Turn this into a recursive function
-//YOURE Working on this one 
-int findSumTR(std::vector<int> vec){
-    return findSumTR(vec, 1);
-}
-
-int findSumTR(std::vector<int> vec, int n){
-    if(n == 0){
-        return 0;
-    }
-  return  (findSum(vec, n - 1) + (vec[vec.size()-1]) - n);
-
 }
 
 
