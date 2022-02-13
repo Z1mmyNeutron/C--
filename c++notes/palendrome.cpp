@@ -33,3 +33,34 @@ bool isPalindrome(string str, int i, int j){
     }// and keep going
     return true; // if we get all the way through
 }
+
+/*
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool isPalindrome(string);
+
+int main()
+{
+  cin >> (string)kale;
+  bool isPalindrome(kale);
+}
+
+bool isPalindrome(const string& str){
+    int i = 0;
+    int j = str.length()-1;
+    
+    while(i < j){
+        if (str[i] != str[j]){
+            return false;
+        }
+        ++i;
+        --j;
+    }
+    return true;
+}
+
+*/
