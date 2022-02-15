@@ -17,16 +17,22 @@ int main()
 {
     //declare vars
     float hours, rate;
-    float final_gross, net;
+    float final_gross, final_net;
+    string name_worker;
     instructUser();
-    cout << "[DATA].... Hours worked []=>: " << endl;
+    //cin >> name_worker;
+    getline(cin, name_worker, '\n');
+    cout << "[DATA].... Worker name  []=>: " << name_worker << endl;
     cin >> hours;
-    cout << "[DATA].... Hourly rate []=>: " << endl;
+   // getline(cin, hours, '\n');
+    cout << "[DATA].... Hours worked []=>: " <<  hours << endl;
     cin >> rate;
-   
+   //getline(cin, rate, '\n');
+    cout << "[DATA].... Hourly rate []=>: " << rate << endl;
     final_gross = computeGross(hours, rate);
+    final_net = computeNet(final_gross);
     cout << "[INFO].... Gross Salary is US $ =>" << final_gross << endl;
-    computeNet(final_gross);
+    cout << "[INFO].... Net Salary is US $ =>" << final_net << endl;
    return 0;
 }
 
