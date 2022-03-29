@@ -1,48 +1,48 @@
+
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
-
-void selectionSort(std::vector<int>, int);
-void swap(int, int);
-void printVector(std::vector<int>, int);
-
-int main()
-{
  
-   std::vector<int> vec = {1, 4, 5, 6, 2, 3, 7};
-   int size = vec.size();
-   int n = vec.size()/sizeof(vec[0]);
-   selectionSort(vec, n);
-   printVector(vec, size);
-   
-   return 0;
+void print(vector<int> & vec) {
+	for (int i =0 ; i < vec.size(); ++i) {
+		cout << vec[i] << " ";
+	}
+	cout << endl;
 }
 
-void swap(int *x, int *y){
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
-void selectionSort(std::vector<int> vec, int n){
-    int i, j, min;
-    
-    for(int i = 0; i < n-1; i++){
-        min = i;
-        for(j = i + 1; j < n; j++){
-            if(vec[j] < vec[min]){
-                min = j;
-            }
-            swap(&vec[min], &vec[i]);
+void selectionSort(vector<int> &sort){
+    int vecSize = sort.size();
+    int j, min, i;
+    for(j = 0; j < vecSize -1; ++j){
+        min = j;
+        for(i = j+1; i < vecSize; ++i){
+            if(sort.at(min) > sort.at(i))
+                min = i;
         }
-    }  
-       
-    
+        if(min !=j)
+            swap(sort.at(j), sort.at(min));
+    }
+    print(sort);
 }
-void printVector(std::vector<int> vec, int size){
-    int i;
-    for(i = 0; i < size; i++)
-        cout << vec[i] << " " << endl;
-    
+//TEST INPUT
+void addNums(vector<int> &sort){
+    sort.push_back(129);
+    sort.push_back(-13);
+    sort.push_back(4);
+    sort.push_back(2);
+    sort.push_back(2941);
+    sort.push_back(293);
+    print(sort);
 }
+
+
+int main() {
+    
+int temp;
+std::vector<int> sort;
+addNums(sort);
+selectionSort(sort);
+return 0;
+}
+ 
