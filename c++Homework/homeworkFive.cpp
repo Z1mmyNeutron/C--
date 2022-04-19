@@ -7,7 +7,8 @@ void selectionSort(vector<int> & vec){
         size_t min = i;
         for(size_t j = i + 1; j < vec.size(); j++){
             if(vec[j] < vec[min]){
-                min = j;}
+                min = j;
+            }
             int temp = vec[i];
             vec[i] = vec[min];
             vec[min] = temp;
